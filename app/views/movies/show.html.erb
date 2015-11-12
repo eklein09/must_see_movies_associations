@@ -29,7 +29,18 @@
       <dt>Director</dt>
       <dd><%= Director.find(@movie.director_id).name %></dd>
 
+      <dt>Number of Characters</dt>
+      <dd> <%= Character.where( {:movie_id => @movie.id} ).length %> </dd>
+
+      <dt>Cast</dt>
+      <dd> <% Character.where( {:movie_id => @movie.id} ).pluck( :name ).each do |castmember| %>
+        <%= "#{castmember}, " %>
+        <% end %>
+      </dd>
+
     </dl>
+
+    <a href="/characters/add_existing/:<%= @movie.id %>" class="btn btn-success">Add New Character</a>
 
     <div class="btn-group btn-group-justified">
 
