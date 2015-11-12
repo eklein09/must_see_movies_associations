@@ -21,6 +21,8 @@
       <dt>Image url</dt>
       <dd><%= @actor.image_url %></dd>
 
+      <dt>List of Characters</dt>
+      <dd><%= @actor.characters.pluck( :name ) %></dd>
 
     </dl>
 

@@ -32,8 +32,14 @@
       <dt>Number of Characters</dt>
       <dd> <%= Character.where( {:movie_id => @movie.id} ).length %> </dd>
 
+      <dt>List of Characters</dt>
+      <dd> <% @movie.characters.pluck( :name ).each do |this_movie_character| %>
+        <%= "#{this_movie_character}, " %>
+        <% end %>
+      </dd>
+
       <dt>Cast</dt>
-      <dd> <% Character.where( {:movie_id => @movie.id} ).pluck( :name ).each do |castmember| %>
+      <dd> <% @movie.actors.pluck( :name ).each do |castmember| %>
         <%= "#{castmember}, " %>
         <% end %>
       </dd>

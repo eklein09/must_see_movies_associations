@@ -26,7 +26,8 @@
 
       <dt>Filmography</dt>
       <dd>
-        <% movie_list = Movie.where({ :director_id => @director.id}).pluck( :title ) %>
+      <% movie_list = @director.movies.pluck( :title ) %>
+      <!--   <% movie_list = Movie.where({ :director_id => @director.id}).pluck( :title ) %> -->
         <% movie_list.each do |this_dir_film| %>
         <%=  "#{this_dir_film}, " %>
         <% end %>
