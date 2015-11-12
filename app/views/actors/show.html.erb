@@ -21,9 +21,17 @@
       <dt>Image url</dt>
       <dd><%= @actor.image_url %></dd>
 
-      <dt>List of Characters</dt>
-      <dd><%= @actor.characters.pluck( :name ) %></dd>
+      <dt>List of Roles</dt>
+      <dd><% @actor.characters.pluck( :name ).each do |char_name| %>
+        <%= "#{char_name}, " %>
+        <% end %>
+      </dd>
 
+      <dt>Filmography</dt>
+      <dd><% @actor.movies.pluck( :title ).each do |film_name| %>
+        <%= "#{film_name}, " %>
+        <% end %>
+      </dd>
     </dl>
 
     <div class="btn-group btn-group-justified">
